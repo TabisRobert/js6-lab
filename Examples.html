@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    //https://www.mocky.io/
+    // example success
+    $(function () {
+        $.ajax({
+            url: 'http://www.mocky.io/v2/5d0e02303400008900ca4af5',
+            success: function (data) {
+                console.log('Success success: ' + JSON.stringify(data))
+            },
+        });
+        // example error
+        $.ajax({
+            url: 'http://www.mocky.io/v2/5d0e02603400006000ca4af7',
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log('Error error: ' + JSON.stringify(jqXHR));
+            }
+        });
+        // example success
+        $.ajax({
+            url: 'http://www.mocky.io/v2/5d0e02303400008900ca4af5',
+        }).done(function (data) {
+            console.log('Success done: ' + JSON.stringify(data))
+        });
+        // example error
+        $.ajax({
+            url: 'http://www.mocky.io/v2/5d0e02603400006000ca4af7',
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            console.log('Error fail: ' + JSON.stringify(jqXHR))
+        });
+
+        // example get
+        $.get('http://www.mocky.io/v2/5d0e02303400008900ca4af5', function (data) {
+            console.log('Example get: ' + JSON.stringify(data))
+        })
+        // example get with param
+        $.get('http://www.mocky.io/v2/5d0e02303400008900ca4af5', { page: 1 }, function (data) {
+            console.log('Example get with param: ' + JSON.stringify(data))
+        })
+        // example get with param and done
+        $.get('http://www.mocky.io/v2/5d0e02303400008900ca4af5', { page: 1 })
+            .done(function (data) {
+                console.log('Example get with param and done: ' + JSON.stringify(data))
+            })
+        // example getJSON with param and done
+        $.getJSON('http://www.mocky.io/v2/5d0e02303400008900ca4af5', { page: 1 })
+            .done(function (data) {
+                console.log('Example getJSON with param and done: ' + JSON.stringify(data))
+            })
+        $.ajaxSetup({
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        });
+    })
+</script>
+</html>
