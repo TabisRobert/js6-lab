@@ -1,7 +1,8 @@
 $(function () {
-    $.get({
-        // url: "http://www.mocky.io/v2/5d0da2bb3400005d00ca4a31"
-        url: 'http://www.mocky.io/v2/5d0da8313400007c00ca4a38'
+    $.ajax({
+        url: 'http://www.mocky.io/v2/5d0da8313400007c00ca4a38',
+        type: 'GET',
+        dataType: 'json',
     }).done(function (data) {
         console.log(data)
         data.forEach(article => {
@@ -11,4 +12,4 @@ $(function () {
                 </article>`)
         })
     });
-})
+});
